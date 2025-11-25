@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("Space_BG_Image.jpg");
+    background-size: cover;
+    background-position: center;
+
+}
+
+#gameCanvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#ui-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+#stats {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+#stats span {
+    margin: 0 15px;
+}
+
+#answer-input {
+    width: 200px;
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    text-align: center;
+}
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+#game-over h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: red;
+}
+
+#game-over p {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#restart-btn {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}

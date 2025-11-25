@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Blaster</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div id="ui-container">
+            <div id="stats">
+                <span>Score: <span id="score">0</span></span>
+                <span>Lives: <span id="lives">5</span></span>
+            </div>
+            <input type="text" id="answer-input" placeholder="Enter your answer...">
+        </div>
+        <div id="game-over" class="hidden">
+            <h1>Game Over</h1>
+            <p>Your Score: <span id="final-score">0</span></p>
+            <p>Your Rank: <span id="rank"></span></p>
+            <button id="restart-btn">Restart</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
