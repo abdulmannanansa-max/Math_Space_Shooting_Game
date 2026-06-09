@@ -1,0 +1,58 @@
+# Workflow Name
+# This name will appear in the GitHub Actions tab
+name: Deploy Files to Google Cloud Storage
+
+# Trigger Section
+# This workflow will run automatically whenever code is pushed to the main branch
+on:
+  push:
+    branches:
+      - main
+
+# Jobs Section
+# A workflow can contain multiple jobs
+jobs:
+
+  # Job Name
+  deploy:
+
+    # GitHub provides a temporary Ubuntu machine to execute the workflow
+    runs-on: ubuntu-latest
+
+    # Steps are executed one after another
+    steps:
+
+      # Step 1
+      # Download repository contents onto the GitHub runner
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Step 2
+      # Authenticate with Google Cloud using the Service Account JSON
+      # The JSON is stored securely inside GitHub Secrets
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{ secrets.GCP_SA_KEY }}'
+
+      # Step 3
+      # Install Google Cloud SDK tools such as gcloud and gsutil
+      - name: Install Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      # Step 4
+      # Verify that authentication was successful
+      - name: Verify Login
+        run: gcloud auth list
+
+      # Step 5
+      # Upload all repository files to the GCS bucket
+      # Replace YOUR_BUCKET_NAME with your bucket name
+      - name: Upload Files to Cloud Storage
+        run: |
+          gsutil -m cp -r * gs://abdulmannan/github_files/
+
+      # Step 6
+      # Display success message
+      - name: Deployment Complete
+        run: echo "Files successfully uploaded to Google Cloud Storage"
